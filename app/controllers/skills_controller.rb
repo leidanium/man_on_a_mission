@@ -4,6 +4,8 @@ class SkillsController < ApplicationController
   # GET /skills or /skills.json
   def index
     @skills = Skill.all
+    
+    # byebug if @skills.count == 3
   end
 
   # GET /skills/1 or /skills/1.json
