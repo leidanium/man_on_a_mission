@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get 'profils/index'
   get 'profils/search'
   get 'profils/show'
+  get 'profils/edit'
+  patch 'profils/update'
 
   resources :experiences
   devise_for :users
