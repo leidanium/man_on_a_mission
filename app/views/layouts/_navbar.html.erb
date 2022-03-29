@@ -2,4 +2,8 @@
     <%= link_to  "Home", profils_index_path %>
     <%= link_to  "Skills", skills_path %>
     <%= link_to  "Exeperiences", experiences_path %>
+    
+    <% if current_user.present? %>
+        <%= button_to "Log OUt", destroy_user_session_path, method: :delete %>
+    <% end %>
 </nav>
