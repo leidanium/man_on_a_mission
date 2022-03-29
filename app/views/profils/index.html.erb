@@ -1,3 +1,10 @@
-<h1>Profils#index</h1>
-<p>Find me in app/views/profils/index.html.erb</p>
+<h1> Welcome on man on a mission</h1>
 
+<%= @profils.each do |profil| %>
+    <div>
+        <p><%= profil.full_name %></p>
+        <p><%= profil.price %> €/Jour</p>
+        <p><%= profil.lang %></p>
+        <p><%= profil.nationality %> </p>
+    </div>
+<% end %>
