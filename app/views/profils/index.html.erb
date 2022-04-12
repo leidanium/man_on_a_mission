@@ -1,10 +1,12 @@
 <h1> Welcome on man on a mission</h1>
 
-<%= @profils.each do |profil| %>
-    <div>
+<div id="profils">
+<% @mans.each do |profil| %>
         <p><%= profil.full_name %></p>
         <p><%= profil.price %> €/Jour</p>
         <p><%= profil.lang %></p>
         <p><%= profil.nationality %> </p>
-    </div>
+
 <% end %>
+</div>
+

@@ -3,7 +3,7 @@ class ProfilsController < ApplicationController
   before_action :set_profil, only: %i[ show]
 
   def index
-    @profils = User.all
+    @mans = User.all
   end
 
   def search
@@ -17,7 +17,7 @@ class ProfilsController < ApplicationController
   end
 
   def update
-    current_user.update_attributes(profils_parms)
+    current_user.update(profils_parms)
     redirect_to root_path
   end
 
