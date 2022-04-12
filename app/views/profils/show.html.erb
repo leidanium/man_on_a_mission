@@ -1,2 +1,9 @@
 <h1>Profils#show</h1>
 <p>Find me in app/views/profils/show.html.erb</p>
+
+<p><%= @profil.full_name %></p>
+<p><%= @profil.price %> €/Jour</p>
+<p><%= @profil.lang %></p>
+<p><%= @profil.nationality %> </p>
+
+<%= mail_to @profil.email %>

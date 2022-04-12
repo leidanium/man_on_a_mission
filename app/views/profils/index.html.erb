@@ -1,12 +1,14 @@
 <h1> Welcome on man on a mission</h1>
 
 <div id="profils">
-<% @mans.each do |profil| %>
-        <p><%= profil.full_name %></p>
-        <p><%= profil.price %> €/Jour</p>
-        <p><%= profil.lang %></p>
-        <p><%= profil.nationality %> </p>
+    <% @mans.each do |profil| %>
+            <p><%= profil.full_name %></p>
+            <p><%= profil.price %> €/Jour</p>
+            <p><%= profil.lang %></p>
+            <p><%= profil.nationality %> </p>
 
-<% end %>
+            <%= link_to  "Consulter le profil", profils_show_path(id: profil.id) %>
+
+    <% end %>
 </div>
 
