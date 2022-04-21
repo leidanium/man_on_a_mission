@@ -1,5 +1,17 @@
 <h1> Welcome on man on a mission</h1>
 
+<h3> Search </h3>
+<%= form_tag profils_search_path, :method => 'get', class: "ml-1" do %>
+  <div class="input-group">
+    <%= text_field_tag :search, nil, placeholder: "Rechercher", class: "form-control p-1"%>
+    <div class="input-group-append">
+      <%= button_tag(class: "input-group-text btn btn-primary m-0") do %>
+        Go !
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
 
 
 <div id="profils">
