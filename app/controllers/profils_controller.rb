@@ -7,6 +7,11 @@ class ProfilsController < ApplicationController
   end
 
   def search
+    @profils = User.where("name like ?", "%#{params['search']}%").or(
+                  User.where("nationality like ?", "%#{params['search']}%")
+                ).or(
+                  Skill.where("name like ?", "%#{params['search']}%")
+                )
   end
 
   def show
@@ -17,8 +22,6 @@ class ProfilsController < ApplicationController
   end
 
   def update
-    byebug
-
     current_user.update(profils_parms)
 
     # TODO Destroy all related skills 
