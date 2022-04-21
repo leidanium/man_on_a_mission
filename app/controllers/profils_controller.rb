@@ -17,7 +17,13 @@ class ProfilsController < ApplicationController
   end
 
   def update
+    byebug
+
     current_user.update(profils_parms)
+
+    # TODO Destroy all related skills 
+    manage_skills_update
+
     redirect_to root_path
   end
 
@@ -29,5 +35,18 @@ class ProfilsController < ApplicationController
 
   def profils_parms
     params.require(:user).permit(:name, :first_name, :price, :lang, :nationality)
+  end
+
+  def manage_skills_update
+    skills = params["user"]["skills"]
+    skills = skills.split(",")
+
+    skills.each do |skill|
+      current_skill = Skill.find_or_create_by(name: skill.strip)
+
+      current_user.skills << current_skill
+    end
+
+    current_user.save
   end
 end

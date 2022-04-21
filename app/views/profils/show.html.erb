@@ -6,4 +6,13 @@
 <p><%= @profil.lang %></p>
 <p><%= @profil.nationality %> </p>
 
+<h2> Skills : </h2>
+<div>
+    <% @profil.skills.each do |skill| %>
+        <span> <%= skill.name %> </span>
+    <% end %>
+</div>
+
+
+<br/>
 <%= mail_to @profil.email %>

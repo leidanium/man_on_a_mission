@@ -27,7 +27,7 @@
   </div>
 
   <div>
-    <%= form.label "Enter your skill separate by coma", :skills, style: "display: block" %>
+    <%= form.label :skills, "Enter your skill separate by coma", style: "display: block" %>
     <%= form.text_area :skills, value: current_user.skills.pluck(:name) %>
   </div>
 
