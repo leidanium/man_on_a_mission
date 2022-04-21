@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_22_080509) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_21_070646) do
   create_table "experiences", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "company"
@@ -26,6 +26,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_22_080509) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "skills_users", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "skill_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["skill_id"], name: "index_skills_users_on_skill_id"
+    t.index ["user_id"], name: "index_skills_users_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -55,5 +64,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_22_080509) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "users_skills", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "skill_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["skill_id"], name: "index_users_skills_on_skill_id"
+    t.index ["user_id"], name: "index_users_skills_on_user_id"
+  end
+
   add_foreign_key "experiences", "users"
+  add_foreign_key "skills_users", "skills"
+  add_foreign_key "skills_users", "users"
+  add_foreign_key "users_skills", "skills"
+  add_foreign_key "users_skills", "users"
 end
